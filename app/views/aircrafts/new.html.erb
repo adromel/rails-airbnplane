@@ -1,0 +1,9 @@
+<%= simple_form_for @aircraft do |a| %>
+  <%= a.input :brand, collection: ["Airbus", "Boeing"] %>
+  <%= a.input :model, collection: ["A320", "A318", "777", "787"] %>
+  <%= a.input :airport_id, collection: @airports %>
+  <%= a.input :owner_id, collection: @owners %>
+  <%= a.input :daily_price %>
+  <%= a.input :photo, as: :file %>
+  <%= a.submit %>
+<% end %>
