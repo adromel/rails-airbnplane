@@ -31,3 +31,5 @@ orly = Airport.create!(name: "Orly", city_code: "94310")
 # boeing = ["737", "787", "777"]
 
 Aircraft.create!(brand: "AIRBUS", model: "A320", airport: lyon, owner: toto, daily_price: 300000)
+Aircraft.create!(brand: "BOEING", model: "787", airport: nice, owner: toto, daily_price: 400000)
+Aircraft.create!(brand: "BOEING", model: "777", airport: marseille, owner: toto, daily_price: 200000)

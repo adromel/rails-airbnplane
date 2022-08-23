@@ -1,8 +1,17 @@
-<h1>Welcome to AirBnPlane</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<% if user_signed_in? %>
-  <p>Hello <%= current_user.email %></p>
-<% else %>
- <p>You are not login</p>
-<% end %>
+<div class="container">
+  <% @aircrafts.each do |aircraft| %>
+    <%= link_to aircraft_path(aircraft), :action => 'go' do %>
+      <div class="card-trip mt-4">
+        <img src="https://images.unsplash.com/photo-1598281343081-0f36311fe207?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" >
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= aircraft.brand%> | <%= aircraft.model  %></h2>
+            <p><%= aircraft.airport.name%> <%= aircraft.airport.city_code %>,   De : <%=  aircraft.owner.first_name  %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= aircraft.daily_price%>$</h2>
+          <img class="card-trip-user avatar-bordered" src="https://cdn-icons-png.flaticon.com/512/4036/4036835.png">
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
