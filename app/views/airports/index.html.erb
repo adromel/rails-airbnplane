@@ -2,7 +2,7 @@
 <div>
   <li>
     <% @airports.each do |a| %>
-      <ul><%= link_to a.name, airport_path %></ul>
+      <ul><%= link_to a.name, airport_path(a) %></ul>
     <% end %>
   </li>
 </div>
