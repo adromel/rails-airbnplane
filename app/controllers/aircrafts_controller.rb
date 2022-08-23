@@ -4,6 +4,10 @@ class AircraftsController < ApplicationController
     @airports = Airport.all
   end
 
+  def show
+
+  end
+
   def create
     @aircraft = Aircraft.create(aircraft_params)
   end
