@@ -1,0 +1,6 @@
+<h1>New booking for <%= @aircraft.brand %> <%= @aircraft.model %> at <%= @aircraft.airport.name %></h1>
+<%= simple_form_for [@aircraft, @booking] do |b| %>
+  <%= b.input :start_on, as: :date %>
+  <%= b.input :end_on, as: :date %>
+  <%= b.submit %>
+<% end %>

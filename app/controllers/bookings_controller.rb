@@ -1,2 +1,23 @@
 class BookingsController < ApplicationController
+  before_action :set_aircraft, only: %i[new create]
+
+  def new
+    @booking = Booking.new
+  end
+
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.aircraft = @aircraft
+    @booking.save
+  end
+
+  private
+
+  def set_aircraft
+    @aircraft = Aircraft.find(params[:aircraft_id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:user_id, :airport_id, :aircraft_id, :start_on, :end_on)
+  end
 end
