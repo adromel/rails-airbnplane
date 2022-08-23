@@ -1,5 +1,7 @@
 class AircraftsController < ApplicationController
+
   before_action :set_aircrafts, only: [:show]
+
   def new
     @aircraft = Aircraft.new
     @airports = Airport.all
@@ -13,9 +15,6 @@ class AircraftsController < ApplicationController
     @aircraft = Aircraft.create(aircraft_params)
   end
 
-  def index
-    @aircrafts = Aircraft.all
-  end
 
   private
 

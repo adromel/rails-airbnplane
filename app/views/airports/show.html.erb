@@ -1,0 +1,4 @@
+<h1>List of Aircrafts in <%= @airport.name %></h1>
+<% @aircrafts.each do |a| %>
+  <p><%= a.brand %> <%= a.model %></p>
+<% end %>
