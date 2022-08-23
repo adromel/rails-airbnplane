@@ -6,7 +6,7 @@ class AircraftsController < ApplicationController
   end
 
   def show
-
+    @dates = [5.days.from_now, 10.days.from_now]
   end
 
   def create
