@@ -2,11 +2,16 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@easepick/amp-plugin": "^1.2.0",
+    "@easepick/bundle": "^1.2.0",
+    "@easepick/core": "^1.2.0",
     "@hotwired/stimulus": "^3.1.0",
     "@hotwired/turbo-rails": "^7.1.3",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.0",
     "flatpickr": "^4.6.13",
+    "lightpick": "^1.6.2",
+    "vanilla-js-calendar": "^1.1.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
   },

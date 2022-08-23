@@ -1,4 +1,7 @@
 <%= simple_form_for [@aircraft] do |f| %>
   <input type="text" id="calandar" data-action="focus->show#check" data-date-disable="<%= @dates.to_json %>"  %>
+
+
+
   <%= f.submit 'Réserver', class: "btn btn-flat" %>
 <% end %>
