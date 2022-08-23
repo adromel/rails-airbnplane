@@ -11,6 +11,9 @@
 @import "components/index";
 @import "pages/index";
 
+// Calandar
+@import "simple_calendar";
+
 .container {
   width: 1000px;
 }
@@ -25,4 +28,8 @@
 .card {
   margin-top: 50px;
   border-radius: 8px;
+}
+
+.button {
+  text-align: center;
 }

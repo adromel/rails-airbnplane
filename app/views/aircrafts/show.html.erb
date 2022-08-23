@@ -4,10 +4,14 @@
     <div class="card-body">
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><h5 class="card-title">Constructeur : <%= @aircraft.brand %>
-        </h5><p>Cet avion est proposé par <strong><%= @aircraft.owner.first_name %> <%= @aircraft.owner.last_name%></strong></p></li>
+        </h5><p>Cet avion est proposé par <strong><%= @aircraft.owner.first_name %> </strong></p></li>
         <li class="list-group-item"><p class="card-text">Série : <%= @aircraft.model %></p></li>
-        <li class="list-group-item"><p class="card-text"><small class="text-muted"><%= @aircraft.daily_price %> $</small></p></li>
+        <li class="list-group-item"><p class="card-text"><small class="text-muted">Price : <%= @aircraft.daily_price %> $</small></p></li>
       </ul>
     </div>
+  </div>
+
+   <div class="button">
+    <a class="btn btn-flat" href="#">Réserver</a>
   </div>
 </div>
