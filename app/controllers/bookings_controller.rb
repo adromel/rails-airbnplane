@@ -1,8 +1,6 @@
 class BookingsController < ApplicationController
-  # def index
-  #   @bookings = Booking.all
-  # end
-  before_action :set_aircraft
+  before_action :set_aircraft, only: %i[create]
+
   def create
     @booking = Booking.new(booking_params.merge(user: current_user, airport: @aircraft.airport, end_on: end_on))
     if @booking.save
@@ -15,7 +13,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
-
 
   def index
     @bookings = Booking.where("user_id = #{params[:user_id]}")
