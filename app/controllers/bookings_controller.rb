@@ -1,15 +1,21 @@
 class BookingsController < ApplicationController
-  before_action :set_aircraft, only: %i[new create]
+  # def index
+  #   @bookings = Booking.all
+  # end
+  before_action :set_aircraft
+  def create
+    @booking = Booking.new(booking_params.merge(user: current_user, airport: @aircraft.airport, end_on: end_on))
+    if @booking.save
+      redirect_to root_path, status: :see_other
+    else
+      render 'aircrafts/show'
+    end
+  end
 
   def new
     @booking = Booking.new
   end
 
-  def create
-    @booking = Booking.new(booking_params)
-    @booking.aircraft = @aircraft
-    @booking.save
-  end
 
   def index
     @bookings = Booking.where("user_id = #{params[:user_id]}")
@@ -23,8 +29,12 @@ class BookingsController < ApplicationController
 
   private
 
+  def end_on
+    booking_params[:start_on].split(' ').last
+  end
+
   def set_aircraft
-    @aircraft = Aircraft.find(params[:aircraft_id])
+    @aircraft = Aircraft.find(booking_params[:aircraft_id])
   end
 
   def booking_params

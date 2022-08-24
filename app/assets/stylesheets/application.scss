@@ -6,11 +6,35 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr.min.css";
+
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
+// Calandar
+@import "simple_calendar";
+
+.container {
+  width: 1000px;
+}
+
+.card-img-top {
+  object-fit: cover;
+  width: 100%;
+  height: 350px;
+  border-radius: 8px 8px 0px 0;
+}
+
+.card {
+  margin-top: 50px;
+  border-radius: 8px;
+}
+
+.button {
+  text-align: center;
+}
 
 body {
   position: relative;
