@@ -2,7 +2,7 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application";
+// import { application } from "./application";
 
-import ShowController from "./show_controller";
-application.register("show", ShowController);
+// import ShowController from "./show_controller";
+// application.register("show", ShowController);

@@ -8,6 +8,8 @@ class AircraftsController < ApplicationController
   end
 
   def show
+    # preparer un booking
+    @booking = Booking.new(aircraft: @aircraft)
     @dates = [5.days.from_now, 10.days.from_now]
   end
 

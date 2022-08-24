@@ -79,8 +79,7 @@ group :test do
   gem "webdrivers"
 end
 
-<<<<<<< HEAD
+
 gem "simple_calendar", "~> 2.4"
-=======
+
 gem "simple-form-datepicker", "~> 0.1.3"
->>>>>>> master

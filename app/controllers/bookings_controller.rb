@@ -1,35 +1,30 @@
 class BookingsController < ApplicationController
-<<<<<<< HEAD
   # def index
   #   @bookings = Booking.all
   # end
-  before_action :booking_params, only [:create]
-  before_action :set_aircraft, only: %i[new create]
-
+  before_action :set_aircraft
   def create
-    @booking = Booking.new
-    @booking.aircraft = @booking
-    @booking.create
-
-    redirect_to root_path, status: :see_other
+    @booking = Booking.new(booking_params.merge(user: current_user, airport: @aircraft.airport, end_on: end_on))
+    if @booking.save
+      redirect_to root_path, status: :see_other
+    else
+      render 'aircrafts/show'
+    end
   end
 
   def new
     @booking = Booking.new
   end
 
-  def create
-    @booking = Booking.new(booking_params)
-    @booking.aircraft = @aircraft
-    @booking.save
-  end
 
   private
 
-  def booking_params
-    params.require(:booking).permit(:start_on, :end_on)
+  def end_on
+    booking_params[:start_on].split(' ').last
+  end
+
   def set_aircraft
-    @aircraft = Aircraft.find(params[:aircraft_id])
+    @aircraft = Aircraft.find(booking_params[:aircraft_id])
   end
 
   def booking_params
