@@ -317,6 +317,4 @@ Devise.setup do |config|
   secure_image_url: true
 end
 
-OmniAuth.setup do |config|
-  config.allowed_request_methods = [:get]
-end
+OmniAuth.config.allowed_request_methods = [:get]
