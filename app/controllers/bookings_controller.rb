@@ -6,8 +6,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params.merge(user: current_user, airport: @aircraft.airport, end_on: end_on))
 
-    if @error = Booking.where(start_on: @booking.start_on, end_on: @booking.end_on).exists?
-      return
+    if Booking.where(start_on: @booking.start_on, end_on: @booking.end_on).exists?
+      Flash.now[:alert] = "Cet avion est déjà réservé"
     else
       if @booking.save
         redirect_to root_path, status: :see_other

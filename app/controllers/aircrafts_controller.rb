@@ -15,7 +15,9 @@ class AircraftsController < ApplicationController
   def show
     # preparer un booking
     @booking = Booking.new(aircraft: @aircraft)
-    @dates = [5.days.from_now, 10.days.from_now]
+    # Je veux desactiver tous les jours qui se trouvent dans l'interval start_on end_on
+    # @dates = [@start.days.from_now, @end.days.from_now]
+    @disabled_dates = @aircraft.bookings.map {|b| (b.start_on..b.end_on).to_a }.flatten.uniq
   end
 
   def index

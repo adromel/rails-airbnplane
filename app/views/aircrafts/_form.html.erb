@@ -6,7 +6,8 @@
     data: {
       controller: "flatpickr",
       flatpickr_min_date: Time.zone.now, #disables past dates
-      flatpickr_mode: 'range'
+      flatpickr_mode: 'range',
+      flatpickr_disable: @disabled_dates.to_json,
     } %>
   <%= f.submit 'Réserver', class: "btn btn-flat" %>
 <% end %>
