@@ -3,4 +3,8 @@ class PagesController < ApplicationController
     @aircrafts = Aircraft.all
   end
 
+  def test
+
+  end
+
 end

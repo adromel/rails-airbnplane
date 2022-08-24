@@ -2,5 +2,11 @@
 <%= simple_form_for [@aircraft, @booking] do |b| %>
   <%= b.input :start_on, as: :date %>
   <%= b.input :end_on, as: :date %>
+   <%= b.text_field :start_on,
+    data: {
+      controller: "flatpickr",
+      flatpickr_date_format: "Y-m-d",
+      flatpickr_min_date: Time.zone.now
+    } %>
   <%= b.submit %>
 <% end %>
