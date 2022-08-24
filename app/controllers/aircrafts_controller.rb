@@ -7,6 +7,10 @@ class AircraftsController < ApplicationController
     @airports = Airport.all
   end
 
+  def index
+    @aircrafts = Aircraft.where("owner_id = #{params[:user_id]}")
+  end
+
 
   def show
     # preparer un booking
@@ -17,6 +21,7 @@ class AircraftsController < ApplicationController
     @aircrafts = Aircraft.where("owner_id = #{params[:user_id]}")
 
   end
+
 
   def create
     @aircraft = Aircraft.create(aircraft_params)
