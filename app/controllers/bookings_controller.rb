@@ -5,10 +5,15 @@ class BookingsController < ApplicationController
   before_action :set_aircraft
   def create
     @booking = Booking.new(booking_params.merge(user: current_user, airport: @aircraft.airport, end_on: end_on))
-    if @booking.save
-      redirect_to root_path, status: :see_other
+
+    if @error = Booking.where(start_on: @booking.start_on, end_on: @booking.end_on).exists?
+      return
     else
-      render 'aircrafts/show'
+      if @booking.save
+        redirect_to root_path, status: :see_other
+      else
+        render 'aircrafts/show'
+      end
     end
   end
 
