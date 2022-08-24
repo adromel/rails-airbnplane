@@ -1,6 +1,22 @@
-<h1>My Dashboard/Bookings</h1>
+<h1>Mes réservations</h1>
 <div>
-  <% @bookings.each do |b| %>
-    <%= link_to "Booking du #{b.start_on}", user_booking_path(params[:user_id], b.id) %>
+  <% if @bookings.exists? %>
+    <% @bookings.each do |b| %>
+      <%= link_to user_booking_path(params[:user_id], b.id) do %>
+        <div class="card mb-3">
+          <img src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="aicraft">
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><h5 class="card-title">Constructeur : <%= b.aircraft.brand %>
+              </h5><p>Cet avion est proposé par <strong><%= b.aircraft.owner.first_name %> </strong></p></li>
+              <li class="list-group-item"><p class="card-text">Série : <%= b.aircraft.model %></p></li>
+              <li class="list-group-item"><p class="card-text"><small class="text-muted">Price : <%= b.aircraft.daily_price %> $</small></p></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <strong>Il n'y a pas de réservations pour cet utilisateur.</strong>
   <% end %>
 </div>
