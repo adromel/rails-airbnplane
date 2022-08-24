@@ -1,14 +1,16 @@
-
-<%= simple_form_for [@booking] do |f| %>
-<%# <input type="text" id="calandar" data-action="focus->show#check" data-date-disable="<%= @dates.to_json %>
-<%= f.hidden_field :aircraft_id %>
-<%= f.text_field :start_on,
-    data: {
-      controller: "flatpickr",
-      flatpickr_min_date: Time.zone.now, #disables past dates
-      flatpickr_mode: 'range',
-      flatpickr_disable: @disabled_dates.to_json,
-    } %>
-  <%= f.submit 'Réserver', class: "btn btn-flat" %>
-<% end %>
-<%= @booking.errors.full_messages  if  @error %>
+<body class="splash">
+  <div class="container">
+    <%= simple_form_for [@booking] do |f| %>
+    <%# <input type="text" id="calandar" data-action="focus->show#check" data-date-disable="<%= @dates.to_json %>
+    <%= f.hidden_field :aircraft_id %>
+    <%= f.text_field :start_on,
+        data: {
+          controller: "flatpickr",
+          flatpickr_min_date: Time.zone.now, #disables past dates
+          flatpickr_mode: 'range',
+          flatpickr_disable: @disabled_dates.to_json,
+        } %>
+      <%= f.submit 'Réserver', class: "btn btn-flat" %>
+    <% end %>
+  </div>
+</body>
