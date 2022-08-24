@@ -1,6 +1,6 @@
 // Entry point for the build script in your package.json
-// import "@hotwired/turbo-rails";
-// import "./controllers";
+import "@hotwired/turbo-rails";
+import "./controllers";
 import "bootstrap";
 import { Application } from "@hotwired/stimulus";
 import Flatpickr from "stimulus-flatpickr";
@@ -13,4 +13,4 @@ application.register("flatpickr", Flatpickr);
 application.debug = true;
 window.Stimulus = application;
 
-// export { application };
+export { application };
