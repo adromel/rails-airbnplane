@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: "pages#home"
 
   # vue de la recherche user
@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   resources :aircrafts do
     resources :bookings, only: [:new, :create]
   end
-
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
