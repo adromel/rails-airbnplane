@@ -1,8 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
+    <%= current_user&.email %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,7 +24,7 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Notifications", "#", class: "dropdown-item" %>
-              <%= link_to "Mes réservations", turbo_resume_historical_location_path, class: "dropdown-item" %>
+              <%= link_to "Mes réservations", "#", class: "dropdown-item" %>
               <%= link_to "Créer une annonce", "#", class: "dropdown-item" %>
               <%= link_to "Compte", "#", class: "dropdown-item" %>
               <%= link_to "Aide", "#", class: "dropdown-item" %>
