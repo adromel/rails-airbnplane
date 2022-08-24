@@ -86,3 +86,5 @@ end
 gem "simple_calendar", "~> 2.4"
 
 gem "simple-form-datepicker", "~> 0.1.3"
+
+gem "awesome_print", "~> 1.9"
