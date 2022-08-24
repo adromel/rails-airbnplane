@@ -11,6 +11,16 @@ class BookingsController < ApplicationController
     @booking.save
   end
 
+  def index
+    @bookings = Booking.where("user_id = #{params[:user_id]}")
+    # if b.aircraft.owner_id == params(user_id) then display ?
+    # @reservations = Booking.where("aircraft_id = #{Aircraft.where("owner_id = #{params[:user_id]}").ids}")
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   private
 
   def set_aircraft
