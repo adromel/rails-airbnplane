@@ -7,16 +7,16 @@ class AircraftsController < ApplicationController
     @airports = Airport.all
   end
 
-<<<<<<< HEAD
   def index
     @aircrafts = Aircraft.where("owner_id = #{params[:user_id]}")
-=======
+  end
+
   def show
     # preparer un booking
     @booking = Booking.new(aircraft: @aircraft)
     @dates = [5.days.from_now, 10.days.from_now]
->>>>>>> aircraft-show
   end
+
 
   def create
     @aircraft = Aircraft.create(aircraft_params)
