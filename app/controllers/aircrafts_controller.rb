@@ -11,10 +11,15 @@ class AircraftsController < ApplicationController
     @aircrafts = Aircraft.where("owner_id = #{params[:user_id]}")
   end
 
+
   def show
     # preparer un booking
     @booking = Booking.new(aircraft: @aircraft)
     @dates = [5.days.from_now, 10.days.from_now]
+
+  def index
+    @aircrafts = Aircraft.where("owner_id = #{params[:user_id]}")
+
   end
 
 
