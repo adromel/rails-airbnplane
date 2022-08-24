@@ -1,20 +1,22 @@
-<h2 class="mt-4" style="text-align: center">Ajouter un avion à la location</h2>
-<div class="container">
-  <div class="new-form">
-    <%= simple_form_for @aircraft do |a| %>
-      <%= a.input :brand,
-                  label: "Marque",
-                  collection: ["Airbus", "Boeing"] %>
-      <%= a.input :model,
-                  label: "Modèle",
-                  collection: ["A320", "A318", "777", "787"] %>
-      <%= a.input :airport_id,
-                  label: "Aéroport",
-                  collection: @airports %>
-      <%= a.input :daily_price,
-                  label: "Prix" %>
-      <%= a.input :photo, as: :file %>
-      <%= a.submit class: "btn btn-ghost mt-4" %>
-    <% end %>
-    </div>
-</div>
+<body class="splash">
+  <div class="container">
+    <h2 class="mt-4 mb-4" style="text-align: center">AJOUTER UN AVION À LA LOCATION</h2>
+    <div class="new-form">
+      <%= simple_form_for @aircraft do |a| %>
+        <%= a.input :brand,
+                    label: "Marque",
+                    collection: ["Airbus", "Boeing"] %>
+        <%= a.input :model,
+                    label: "Modèle",
+                    collection: ["A320", "A318", "777", "787"] %>
+        <%= a.input :airport_id,
+                    label: "Aéroport",
+                    collection: @airports %>
+        <%= a.input :daily_price,
+                    label: "Prix" %>
+        <%= a.input :photo, as: :file %>
+        <%= a.submit class: "btn btn-ghost mt-4" %>
+      <% end %>
+      </div>
+  </div>
+</body>

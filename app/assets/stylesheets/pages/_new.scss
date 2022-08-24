@@ -7,9 +7,8 @@
   color: #6c757d;
 }
 
-.page{
-  background: rgb(40,218,241);
-  background: radial-gradient(circle, rgba(40,218,241,0.2847732843137255) 35%, rgba(40,120,241,0.4220281862745098) 100%);
+.splash{
+  background-image: radial-gradient(circle, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.10) 100%), url(https://images.unsplash.com/photo-1621331805847-bb27233e4ae1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
 }
 
 .new-form {
@@ -20,6 +19,7 @@
 
 .form-label{
   display: flex;
+  color: rgba(255,255,255,0.7);
 }
 
 .form-select {
@@ -35,8 +35,9 @@
 }
 
 h2{
-  color: #03045e;
+  color: rgba(255,255,255,0.8);
   font-family: Helvetica;
+  display: inline-block;
 }
 
 .btn {
@@ -44,7 +45,7 @@ h2{
   border-radius: 10px;
   background: rgb(0,234,255);
   background: linear-gradient(180deg, rgba(0,234,255,0.20073967086834732) 0%, rgba(8,227,255,0.4) 100%);
-  color: #6c757d;
+  color: rgba(255,255,255,0.7);
   &:hover {
     color: #03045e;
   }
@@ -53,7 +54,7 @@ h2{
 .form-control{
   border-radius: 10px;
   border-color: #e8e8e4;
-  color: #6c757d;
+  color: rgba(255,255,255,0.7);
   background: rgb(0,234,255);
   background: linear-gradient(180deg, rgba(0,234,255,0.20073967086834732) 0%, rgba(8,227,255,0.4) 100%);
   &:hover {
