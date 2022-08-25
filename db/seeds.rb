@@ -34,6 +34,6 @@ b787_2 = Aircraft.create!(brand: "BOEING", model: "787", airport: nantes, owner:
 b787 = Aircraft.create!(brand: "BOEING", model: "787", airport: nice, owner: owner2, daily_price: 400000)
 b777 = Aircraft.create!(brand: "BOEING", model: "777", airport: marseille, owner: owner3, daily_price: 200000)
 
-Booking.create!(user_id: user1.id, airport_id: lyon.id, aircraft_id: a320.id, start_on: "2022-08-23", end_on: "2022-08-24")
-Booking.create!(user_id: user1.id, airport_id: marseille.id, aircraft_id: b777.id, start_on: "2022-08-25", end_on: "2022-08-25")
-Booking.create!(user_id: user2.id, airport_id: lyon.id, aircraft_id: a320.id, start_on: "2022-08-26", end_on: "2022-08-27")
+Booking.create!(user_id: user1.id, aircraft_id: a320.id, start_on: "2022-08-23", end_on: "2022-08-24")
+Booking.create!(user_id: user1.id, aircraft_id: b777.id, start_on: "2022-08-25", end_on: "2022-08-25")
+Booking.create!(user_id: user2.id, aircraft_id: a320.id, start_on: "2022-08-26", end_on: "2022-08-27")
