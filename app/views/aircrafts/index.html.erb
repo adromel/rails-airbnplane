@@ -13,14 +13,14 @@
               <li class="list-group-item"><h5 class="card-title">Constructeur : <%= a.brand %>
               </h5><p>Cet avion est proposé par <strong><%= a.owner.first_name %> </strong></p></li>
               <li class="list-group-item"><p class="card-text">Série : <%= a.model %></p></li>
-              <li class="list-group-item"><p class="card-text"><small class="text-muted">Price : <%= a.daily_price %> $</small></p></li>
+              <li class="list-group-item"><p class="card-text"><small class="text-muted">Price : <%= number_to_currency(a.daily_price, unit: "€", delimiter: " ", precision: 0, format: "%n %u") %> </small></p></li>
             </ul>
           </div>
         </div>
 
         <div>
           <h4>Réservations confirmées et à confirmer</h4>
-          <% a.bookings.each do |b| %>
+          <% a.bookings.order("confirmed desc").each do |b| %>
             <div class="card-booking-owner">
               <img src="#" />
               <div class="card-booking-owner-infos">
@@ -32,7 +32,7 @@
                     <% elsif b.confirmed == true %>
                       <p>Validée</p>
                     <% else %>
-                      <p>refusée</p>
+                      <p>Refusée</p>
                     <% end %>
                   </p>
                   <% if b.confirmed == nil %>
