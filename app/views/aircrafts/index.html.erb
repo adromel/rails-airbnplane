@@ -21,9 +21,36 @@
         <div class="card-booking-owner-infos">
             <p> Client : <strong><%= b.user.first_name %></strong> </p>
             <p>Location <strong><%= a.model %> </strong> du <%= b.start_on %> au <%= b.end_on %> </p>
+            <p>
+              <% if b.confirmed == nil %>
+                <p>En attente</p>
+              <% elsif b.confirmed == true %>
+                <p>Validée</p>
+              <% else %>
+                <p>refusée</p>
+              <% end %>
+            </p>
+            <% if b.confirmed == nil %>
+            <%= link_to "valider", accept_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "refuser", decline_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+            <% end %>
         </div>
       </div>
     <% end %>
   </div>
 
 <% end %>
+
+
+<%#
+nil = en attente
+true = validée
+false = refusée
+
+booking/id/accept
+booking/id/decline
+
+methode update boolen
+
+rediriger sur l'index de booking
+%>
