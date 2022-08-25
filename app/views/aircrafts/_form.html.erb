@@ -1,5 +1,6 @@
 <body class="splash">
   <div class="container">
+    <%= @error_booking %>
     <%= simple_form_for [@booking] do |f| %>
     <%# <input type="text" id="calandar" data-action="focus->show#check" data-date-disable="<%= @dates.to_json %>
     <%= f.hidden_field :aircraft_id %>
