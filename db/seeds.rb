@@ -29,10 +29,10 @@ orly = Airport.create!(name: "Orly", city_code: "94310")
 # airbus = ["A320", "A380", "A350XWB"]
 # boeing = ["737", "787", "777"]
 
-a320 = Aircraft.create!(brand: "AIRBUS", model: "A320", airport: lyon, owner: User.find(1), daily_price: 300000)
-b787_2 = Aircraft.create!(brand: "BOEING", model: "787", airport: nantes, owner: User.find(1), daily_price: 300000)
-b787 = Aircraft.create!(brand: "BOEING", model: "787", airport: nice, owner: User.find(2), daily_price: 400000)
-b777 = Aircraft.create!(brand: "BOEING", model: "777", airport: marseille, owner: User.find(3), daily_price: 200000)
+a320 = Aircraft.create!(brand: "AIRBUS", model: "A320", airport: lyon, owner: owner1, daily_price: 300000)
+b787_2 = Aircraft.create!(brand: "BOEING", model: "787", airport: nantes, owner: owner1, daily_price: 300000)
+b787 = Aircraft.create!(brand: "BOEING", model: "787", airport: nice, owner: owner2, daily_price: 400000)
+b777 = Aircraft.create!(brand: "BOEING", model: "777", airport: marseille, owner: owner3, daily_price: 200000)
 
 Booking.create!(user_id: user1.id, aircraft_id: a320.id, start_on: "2022-08-23", end_on: "2022-08-24")
 Booking.create!(user_id: user1.id, aircraft_id: b777.id, start_on: "2022-08-25", end_on: "2022-08-25")
