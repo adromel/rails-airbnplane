@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_121121) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_090837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,14 +63,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_121121) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "airport_id", null: false
     t.bigint "aircraft_id", null: false
     t.date "start_on"
     t.date "end_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["aircraft_id"], name: "index_bookings_on_aircraft_id"
-    t.index ["airport_id"], name: "index_bookings_on_airport_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -100,6 +98,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_121121) do
   add_foreign_key "aircrafts", "airports"
   add_foreign_key "aircrafts", "users", column: "owner_id"
   add_foreign_key "bookings", "aircrafts"
-  add_foreign_key "bookings", "airports"
   add_foreign_key "bookings", "users"
 end
