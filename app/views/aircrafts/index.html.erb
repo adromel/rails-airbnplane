@@ -1,7 +1,7 @@
 <div class="container">
   <div style="display: flex; flex-direction: row; justify-content: space-between">
     <h1>Mes avions</h1>
-    <p><%= link_to "Ajouter un avion", new_user_aircraft_path(current_user), class: "btn btn-primary" %></p>
+    <p><%= link_to "Ajouter un avion", current_user.present? ? new_user_aircraft_path(current_user) : new_user_registration_path, class: "btn btn-primary" %></p>
   </div>
   <div>
     <% if @aircrafts.any? %>
