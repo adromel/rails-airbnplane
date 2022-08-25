@@ -39,3 +39,17 @@ body {
   min-height: 100vh;
   padding-bottom: 120px;
 }
+
+.card-title li h5 {
+  color: gray;
+}
+
+h4, .h4  {
+  margin-bottom: 0;
+  color: gray;
+  font-size: 1.25rem;
+}
+
+.card-body {
+  text-align: left;
+}
