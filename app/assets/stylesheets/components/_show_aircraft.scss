@@ -12,8 +12,11 @@
     position: relative;
     border-radius: 8px 0px;
     margin-left: 320px;
+    opacity: 0.7;
     h2 {
       font-weight: 100;
+      font-size: 20px;
+      margin-bottom: 50px;
     }
   }
 
@@ -25,10 +28,11 @@
     border-radius: 8px;
     margin-bottom: 30px;
     margin-right: 330px;
+    opacity: 0.8;
   }
   form {
     position: absolute;
-    top: 200px;
+    top: 160px;
     right: 50px;
     z-index: 10;
   }
@@ -38,6 +42,10 @@
     background-color: #023e8a;
   }
 
+  .card-text {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 
 }
 .text-content {
@@ -64,7 +72,7 @@
   }
   &:hover{
     border-top-right-radius:0px;
-  border-bottom-left-radius:0px;
+    border-bottom-left-radius:0px;
     // background:rgba(0,0,0,.5);
     // color:white;
     &:before,&:after{
@@ -84,8 +92,8 @@
   text-align: center;
   background-color: white;
   text-align: left;
-  padding-left: 50px;
-  padding-top: 50px;
+  padding-left: 30px;
+  padding-top: 20px;
   h2 {
     color:gray;
   }
@@ -95,10 +103,12 @@
   text-align: left;
   // background-color: rgb(246, 246, 246);
   margin-right: 50px;
-  padding: 20px;
+  padding: 0px;
   border-radius: 8px;
   padding-bottom: 3px;
+  height: 217px;
   h1 {
     color: #023e8a;
+    font-size: 30px;
   }
 }
