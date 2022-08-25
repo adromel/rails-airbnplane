@@ -13,6 +13,17 @@
               <li class="list-group-item"><p class="card-text"><small class="text-muted">Price : <%= b.aircraft.daily_price %> $</small></p></li>
             </ul>
           </div>
+          <div>
+            <p>Statut de la réservation :
+              <% if b.confirmed == nil %>
+                <strong>En attente de validation</strong>
+              <% elsif b.confirmed == true %>
+                <strong>Validée</strong>
+              <% elsif b.confirmed == false %>
+                <strong>Refusée</strong>
+              <% end %>
+            </p>
+          </div>
         </div>
       <% end %>
     <% end %>

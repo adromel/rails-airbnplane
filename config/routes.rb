@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     patch :accept, on: :member
     patch :decline, on: :member
   end
+  get 'search', to: 'airports#search'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

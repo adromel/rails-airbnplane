@@ -5,7 +5,6 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
-    <%= current_user&.email %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,6 +28,8 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <p class="dropdown-item"><%= current_user&.email %></p>
+              <hr class="dropdown-divider">
               <%= link_to "Notifications", "#", class: "dropdown-item" %>
               <%= link_to "Mes réservations", "#", class: "dropdown-item" %>
               <%= link_to "Créer une annonce", "#", class: "dropdown-item" %>
