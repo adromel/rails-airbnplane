@@ -20,7 +20,7 @@
 }
 
 .navbar {
-  background-color: #0D6EFD;
+  background-color: #023e8a;
   padding: 0;
   color: white;
   height: 90px;
@@ -29,7 +29,6 @@
 .nav-link {
   color: aliceblue;
   padding: 10px;
-  background-color: #005eec;
   margin-right: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -39,7 +38,8 @@
   width: 200px;
   text-align: center;
   &:hover {
-    color: #0D6EFD;
+    color: aliceblue;
+    background-color: #005eec;
   }
 }
 

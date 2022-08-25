@@ -1,14 +1,14 @@
-<div class="container" data-controller="show hello">
-  <div class="card mb-3">
-    <img src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="aicraft">
-    <div class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><h5 class="card-title">Constructeur : <%= @aircraft.brand %></h5></li>
-        <li class="list-group-item"><h4>Cet avion est proposé par <strong><%= @aircraft.owner.first_name %> </strong></h4></li>
-        <li class="list-group-item"><p class="card-text">Série : <%= @aircraft.model %></p></li>
-        <li class="list-group-item"><p class="card-text"><small class="text-muted">Price : <%= @aircraft.daily_price %> $</small></p></li>
+<div class="container" id="crad-show">
+<div class="data-container">
+  <img id="image" class="zoom-in-out-box" src="https://images.pexels.com/photos/3811676/pexels-photo-3811676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="aircraft-leggs">
+  </div>
+  <div class="text-content">
+    <div class="text">
+      <h1>Constructeur : <%= @aircraft.brand %></h1>
+      <h2>Cet avion est proposé par <strong><%= @aircraft.owner.first_name %> </strong></h2>
+      <p class="card-text">Série : <%= @aircraft.model %></p>
+      <p class="card-text"><small class="text-muted">Price : <%= @aircraft.daily_price %> $</small></p>
         <%= render 'aircrafts/form' %>
-      </ul>
     </div>
   </div>
 </div>
