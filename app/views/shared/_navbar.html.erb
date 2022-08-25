@@ -2,9 +2,13 @@
 
 
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <i class="fa-solid fa-plane-departure fa-2x"></i>
     <% end %>
+
+    <div class="identifiant">
+      <p>Profile ID  : <%= current_user&.email %></p>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,21 +16,21 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Accueil", root_path, class: "nav-link"%>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Mes réservations", user_bookings_path(current_user), class: "nav-link"%>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Mes avions", user_aircrafts_path(current_user), class: "nav-link"%>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "Accueil", root_path, class: "nav-link"%>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Mes réservations", user_bookings_path(current_user), class: "nav-link"%>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Mes avions", user_aircrafts_path(current_user), class: "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Messages", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+            <i class="fa-solid fa-earth-europe fa-3x" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <p class="dropdown-item"><%= current_user&.email %></p>
               <hr class="dropdown-divider">
