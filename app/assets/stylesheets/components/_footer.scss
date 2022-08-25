@@ -1,5 +1,5 @@
 .footer {
-  background: #023E8A;
+  background: #023e8a;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,4 +37,12 @@ transition: 1s ease;
 
 .footer .fa-heart {
   color: #D23333;
+}
+
+.copyright {
+  text-align: center;
+  margin: 0;
+  margin-top: 60px;
+  font-size: 13px;
+  margin-left: 60px;
 }
