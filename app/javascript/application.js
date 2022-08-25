@@ -12,5 +12,6 @@ application.register("flatpickr", Flatpickr);
 // // Configure Stimulus development experience
 application.debug = true;
 window.Stimulus = application;
+import "controllers"
 
 // export { application };
