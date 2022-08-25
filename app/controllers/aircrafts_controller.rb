@@ -8,7 +8,12 @@ class AircraftsController < ApplicationController
   end
 
   def index
-    @aircrafts = Aircraft.where("owner_id = #{current_user.id}")
+    if current_user
+      @aircrafts = Aircraft.where("owner_id = #{current_user.id}")
+    else
+      @aircrafts = []
+    end
+
     @booking = Booking.new(aircraft: @aircraft)
     @dates = [5.days.from_now, 10.days.from_now]
   end
