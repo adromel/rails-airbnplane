@@ -1,0 +1,7 @@
+<div class="search-list">
+  <ul>
+    <% @airports.each do |airport| %>
+       <li><%= link_to airport.name, airport_path(airport) %></li>
+    <% end %>
+  </ul>
+</div>

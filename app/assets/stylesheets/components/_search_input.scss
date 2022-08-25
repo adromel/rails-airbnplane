@@ -1,0 +1,27 @@
+.search-list{
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+
+
+  ul{
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+  }
+
+  li {
+    padding: 10px;
+    &:hover {
+      background-color: #f8f9fa;
+      cursor: pointer;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #023e8a;
+  }
+
+
+}
