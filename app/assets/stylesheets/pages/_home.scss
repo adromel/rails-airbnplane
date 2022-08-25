@@ -29,12 +29,15 @@ width: 800px;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: #023e8a;
+  display: flex;
 }
 
 .card-trip p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  color: #023e8a;
 }
 
 
@@ -61,4 +64,10 @@ width: 800px;
 a{
   text-decoration: none;
   text-decoration-color: none;
+}
+
+.search-bar{
+
+  margin-top: 200px;
+  margin-bottom: 300px;
 }

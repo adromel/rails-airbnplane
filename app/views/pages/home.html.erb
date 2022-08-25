@@ -1,5 +1,20 @@
 <div class="container">
+
 <h1 style="margin-bottom: 50px">Find your plane</h1>
+
+
+  <div class="search-bar" data-controller="search">
+    <div class="col-12" >
+      <input type="text" class="form-control" placeholder="Find airport"
+             data-search-target="input"
+             data-action="input->search#update">
+      <div data-search-target="list"></div>
+    </div>
+  </div>
+
+
+
+
   <% @aircrafts.each do |aircraft| %>
     <%= link_to aircraft_path(aircraft), :action => 'go' do %>
       <div class="card-trip mt-4 mb-4">
@@ -15,4 +30,5 @@
       </div>
     <% end %>
   <% end %>
+
 </div>

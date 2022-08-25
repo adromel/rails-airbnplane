@@ -5,9 +5,11 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fa-solid fa-plane-departure fa-2x"></i>
     <% end %>
+
     <div class="identifiant">
       <p>Profile ID  : <%= current_user&.email %></p>
     </div>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,6 +32,8 @@
             <li class="nav-item dropdown">
             <i class="fa-solid fa-earth-europe fa-3x" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <p class="dropdown-item"><%= current_user&.email %></p>
+              <hr class="dropdown-divider">
               <%= link_to "Notifications", "#", class: "dropdown-item" %>
               <%= link_to "Mes réservations", "#", class: "dropdown-item" %>
               <%= link_to "Créer une annonce", "#", class: "dropdown-item" %>

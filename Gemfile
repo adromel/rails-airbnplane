@@ -89,4 +89,5 @@ gem "simple-form-datepicker", "~> 0.1.3"
 
 gem "awesome_print", "~> 1.9"
 
+gem "pg_search"
 gem 'validates_overlap'
