@@ -1,10 +1,20 @@
 import { Controller } from "@hotwired/stimulus"
 
-console.log('eeee')
-
 // Connects to data-controller="search"
 export default class extends Controller {
+  static targets = [ "input", "list" ]
+
+
+  update() {
+    fetch(`/search?query=${this.inputTarget.value}`)
+    .then(response => response.text())
+    .then((htmlResult) => {
+      this.listTarget.innerHTML = htmlResult
+    })
+
+  }
+
   connect() {
-    console.log('coucououcouc')
+    console.log('coco')
   }
 }
