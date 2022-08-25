@@ -20,7 +20,7 @@ class Booking < ApplicationRecord
   def avaibility
     return unless start_on && end_on
 
-    dates_already_booked = aircraft.bookings.map(&:days).flatten.uniq
+    dates_already_booked = aircraft.bookings.where.not(id: id).map(&:days).flatten.uniq
     return if (days & dates_already_booked).empty?
 
 

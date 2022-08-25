@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_aircraft, only: %i[create]
+  before_action :set_booking, only: %i[accept decline]
 
   def create
     @booking = Booking.new(booking_params.merge(user: current_user, end_on: end_on))
@@ -30,6 +31,20 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def accept
+    @booking.update!(confirmed: true)
+    redirect_to user_aircrafts_path(current_user)
+  end
+
+  def decline
+    @booking.update!(confirmed: false)
+    redirect_to user_aircrafts_path(current_user)
+  end
+
   private
 
   def end_on
@@ -37,10 +52,14 @@ class BookingsController < ApplicationController
   end
 
   def set_aircraft
-    @aircraft = Aircraft.find(booking_params[:aircraft_id])
+    @aircraft = Aircraft.find(params[:aircraft_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :aircraft_id, :start_on, :end_on)
+    params.require(:booking).permit(:user_id, :aircraft_id, :start_on, :end_on, :confirmed)
   end
 end

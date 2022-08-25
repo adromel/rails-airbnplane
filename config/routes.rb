@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :bookings
+  patch '/bookings/:id', to: 'bookings#update', as: 'update_booking'
+
 
   resources :aircrafts do
     resources :bookings
@@ -27,6 +29,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
+  resources :bookings, only: [:edit] do
+    patch :accept, on: :member
+    patch :decline, on: :member
+  end
   get 'search', to: 'airports#search'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
