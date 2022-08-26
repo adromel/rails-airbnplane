@@ -81,3 +81,26 @@
   border-radius: 8px;
   transition: 0.2s ease;
 }
+
+.dropdown-user {
+  margin-bottom: 0;
+  color: darkblue !important;
+}
+
+.dropdown-user:hover {
+  color: darkblue !important;
+  background-color: #0280fe;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.bg-danger {
+  left: 90% !important;
+  top: 10% !important;
+}
+
+.l-75 {
+  left: 75% !important;
+}

@@ -1,35 +1,45 @@
-<div class="container">
-  <h1>Mes réservations</h1>
-  <% if @bookings.exists? %>
-    <% @bookings.each do |b| %>
-        <div class="card mb-3">
-          <%# <img src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="aicraft"> %>
-          <% if b.aircraft.photo.attached?  %>
-            <%= cl_image_tag b.aircraft.photo.key, class: "card-img-top", alt: "aicraft" %>
-          <% end %>
-          <div class="card-body">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><h5 class="card-title">Constructeur : <%= b.aircraft.brand %></h5></li>
-              <li class="list-group-item"><h4>Cet avion est proposé par <strong><%= b.aircraft.owner.first_name %></strong></h4></li>
-              <li class="list-group-item"><p class="card-text">Série : <%= b.aircraft.model %></p></li>
-              <li class="list-group-item"><p class="card-text">Début: <%= b.start_on %> - Fin: <%= b.end_on %></p></li>
-              <li class="list-group-item"><p class="card-text"><small class="text-muted">Price : <%= number_to_currency(b.aircraft.daily_price, unit: "€", delimiter: " ", precision: 0, format: "%n %u") %></small></p></li>
-            </ul>
+<body class="splash">
+  <div class="container" id="crad-show">
+    <div style="display: flex; flex-direction: row; justify-content: space-between">
+      <h1 id="title-my-aircraft">Mes avions</h1>
+      <p><%= link_to "Ajouter un avion", current_user.present? ? new_user_aircraft_path(current_user) : new_user_registration_path, class: "btn btn-primary" %></p>
+    </div>
+    <div class="data-container" id="space-under-elements">
+     <% if @bookings.exists? %>
+        <% @bookings.each do |b| %>
+          <div class="element">
+            <% if b.aircraft.photo.attached?  %>
+              <%= cl_image_tag b.aircraft.photo.key, id: "image", class: "zoom-in-out-box", alt: "aicraft" %>
+            <% end %>
+
+            <div class="text-content">
+              <div class="text">
+                  <h1>CONSTRUCTEUR : <%= b.aircraft.brand %></h1>
+                  <h2>Cet avion est proposé par <strong><%= b.aircraft.owner.first_name %></strong></h2>
+                  <p class="card-text">Série : <%= b.aircraft.model %></p>
+                  <p class="card-text">Période : <%= b.start_on.strftime("%d/%m/%Y") %> | <%= b.end_on.strftime("%d/%m/%Y") %></p>
+
+                  <p class="card-text"><small class="text-muted">Price : <%= number_to_currency(b.aircraft.daily_price, unit: "€", delimiter: " ", precision: 0, format: "%n %u") %> </small>$</p>
+              </div>
+              <div class="confirmed">
+                <p>Statut de la réservation :
+                  <% if b.confirmed == nil %>
+                    <strong>En attente de validation</strong>
+                  <% elsif b.confirmed == true %>
+                    <strong>Validée</strong>
+                  <% elsif b.confirmed == false %>
+                    <strong>Refusée</strong>
+                  <% end %>
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p>Statut de la réservation :
-              <% if b.confirmed == nil %>
-                <strong>En attente de validation</strong>
-              <% elsif b.confirmed == true %>
-                <strong>Validée</strong>
-              <% elsif b.confirmed == false %>
-                <strong>Refusée</strong>
-              <% end %>
-            </p>
-          </div>
-        </div>
+        <% end %>
+      <% else %>
+        <p>
+          <strong>Il n'y a pas de réservation pour cet utilisateur</strong>
+        </p>
       <% end %>
-  <% else %>
-    <strong>Il n'y a pas de réservations pour cet utilisateur.</strong>
-  <% end %>
-</div>
+    </div>
+  </div>
+</body>

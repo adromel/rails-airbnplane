@@ -4,7 +4,6 @@
   margin-top: 50px;
   margin-bottom: 50px;
   text-align: center;
-  color: #6c757d;
 }
 
 .splash{
@@ -34,8 +33,8 @@
   }
 }
 
-h2{
-  color: rgba(255,255,255,0.8);
+.title{
+  color: #03045e;
   font-family: Helvetica;
   display: inline-block;
 }
@@ -50,4 +49,13 @@ h2{
     border-color: #03045e;;
     color: #03045e;
   }
+}
+
+.optional {
+  color: #03045e;
+}
+
+.connect {
+  color: #03045e;
+  margin-bottom: 5px;
 }

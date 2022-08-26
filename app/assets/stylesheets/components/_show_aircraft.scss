@@ -31,9 +31,6 @@
     opacity: 0.8;
   }
   form {
-    position: absolute;
-    top: 160px;
-    right: 50px;
     z-index: 10;
   }
 
@@ -111,4 +108,10 @@
     color: #023e8a;
     font-size: 30px;
   }
+}
+
+.new_booking {
+  position: absolute;
+  top: 150px;
+  left: 260px;
 }

@@ -1,19 +1,17 @@
 <div class="container">
 
-<h1 style="margin-bottom: 50px">Find your plane</h1>
+ <h1 class="hhome" style="margin-bottom: 30px">Find your plane</h1>
 
 
   <div class="search-bar" data-controller="search">
     <div class="col-12" >
       <input type="text" class="form-control" placeholder="Find airport"
              data-search-target="input"
-             data-action="input->search#update">
+             data-action="input->search#update"
+             style="padding: 10px;text-align: center">
       <div data-search-target="list"></div>
     </div>
   </div>
-
-
-
 
   <% @aircrafts.each do |aircraft| %>
     <%= link_to aircraft_path(aircraft), :action => 'go' do %>
@@ -26,12 +24,24 @@
           <div>
             <h2><%= aircraft.brand %> | <%= aircraft.model  %></h2>
             <p><%= aircraft.airport.name%> <%= aircraft.airport.city_code %>,   De : <%=  aircraft.owner.first_name  %></p>
+  <div style="margin-top: 100px">
+    <% @aircrafts.each do |aircraft| %>
+      <%= link_to aircraft_path(aircraft), :action => 'go' do %>
+        <div class="card-trip mt-4 mb-4">
+          <% if aircraft.photo.attached? %>
+            <%= cl_image_tag aircraft.photo.key, id: "home-img", alt: "aicraft" %>
+          <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= aircraft.brand %> | <%= aircraft.model  %></h2>
+              <p><%= aircraft.airport.name%> <%= aircraft.airport.city_code %>,   De : <%=  aircraft.owner.first_name  %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= aircraft.daily_price%>$</h2>
+            <img class="card-trip-user avatar-bordered" src="https://cdn-icons-png.flaticon.com/512/4036/4036835.png">
           </div>
-          <h2 class="card-trip-pricing"><%= aircraft.daily_price%>$</h2>
-          <img class="card-trip-user avatar-bordered" src="https://cdn-icons-png.flaticon.com/512/4036/4036835.png">
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
 </div>

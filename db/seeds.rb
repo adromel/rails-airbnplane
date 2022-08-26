@@ -24,10 +24,6 @@ lyon = Airport.create!(name: "Aéroport de Lyon-Saint Exupéry", city_code: "691
 orly = Airport.create!(name: "Aéroport de Paris-Orly", city_code: "94310")
 roissy = Airport.create!(name: "Aéroport de Paris-Charles de Gaulle", city_code: "95700")
 
-brand = ["Airbus", "Boeing"]
-airbus = ["A220", "A319", "A319neo", "A320", "A320neo", "A321", "A330", "A330neo", "A350"]
-boeing = ["B717", "B737", "B737 MAX", "B747", "B757", "B767"]
-
 a320 = Aircraft.create!(brand: "AIRBUS", model: "A320", airport: roissy, owner: owner1, daily_price: 300000)
 a320.photo.attach(io: File.open("./public/images/Airbus_A320-271N_NEO_D-AVVA.jpg"), filename: 'Airbus_A320-271N_NEO_D-AVVA.jpg')
 a3202 = Aircraft.create!(brand: "AIRBUS", model: "A320", airport: marseille, owner: owner2, daily_price: 285000)
