@@ -1,53 +1,55 @@
-<div class="container">
-  <div style="display: flex; flex-direction: row; justify-content: space-between">
-    <h1>Mes avions</h1>
-    <p><%= link_to "Ajouter un avion", current_user.present? ? new_user_aircraft_path(current_user) : new_user_registration_path, class: "btn btn-primary" %></p>
-  </div>
-  <div>
-    <% if @aircrafts.any? %>
-      <% @aircrafts.each do |a| %>
-        <div class="card mb-3">
-          <img src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="aicraft">
-          <div class="card-body">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><h5 class="card-title">Constructeur : <%= a.brand %>
-              </h5><p>Cet avion est proposé par <strong><%= a.owner.first_name %> </strong></p></li>
-              <li class="list-group-item"><p class="card-text">Série : <%= a.model %></p></li>
-              <li class="list-group-item"><p class="card-text"><small class="text-muted">Price : <%= number_to_currency(a.daily_price, unit: "€", delimiter: " ", precision: 0, format: "%n %u") %> </small></p></li>
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <h4>Réservations confirmées et à confirmer</h4>
-          <% a.bookings.order("confirmed desc").each do |b| %>
-            <div class="card-booking-owner">
-              <img src="#" />
-              <div class="card-booking-owner-infos">
-                  <p> Client : <strong><%= b.user.first_name %></strong> </p>
-                  <p>Location <strong><%= a.model %> </strong> du <%= b.start_on %> au <%= b.end_on %> </p>
-                  <p>
-                    <% if b.confirmed == nil %>
-                      <p>En attente</p>
-                    <% elsif b.confirmed == true %>
-                      <p>Validée</p>
-                    <% else %>
-                      <p>Refusée</p>
-                    <% end %>
-                  </p>
-                  <% if b.confirmed == nil %>
-                  <%= link_to "valider", accept_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
-                  <%= link_to "refuser", decline_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
-                  <% end %>
+<body class="splash">
+  <div class="container" id="crad-show">
+    <div style="display: flex; flex-direction: row; justify-content: space-between">
+      <h1 id="title-my-aircraft">Mes avions</h1>
+      <p><%= link_to "Ajouter un avion", current_user.present? ? new_user_aircraft_path(current_user) : new_user_registration_path, class: "btn btn-primary" %></p>
+    </div>
+    <div class="data-container" id="space-under-elements">
+      <% if @aircrafts.any? %>
+        <% @aircrafts.each do |a| %>
+          <div class="element">
+            <img id="image" class="zoom-in-out-box" src="https://images.pexels.com/photos/3811676/pexels-photo-3811676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="aircraft-leggs">
+            <div class="text-content">
+              <div class="text">
+                  <h1>CONSTRUCTEUR : <%= a.brand %></h1>
+                  <h2>Cet avion est proposé par <strong><%= a.owner.first_name %> </strong></h2>
+                  <p class="card-text">Série : <%= a.model %></p>
+                  <p class="card-text"><small class="text-muted">Price : <%= number_to_currency(a.daily_price, unit: "€", delimiter: " ", precision: 0, format: "%n %u") %> </small>$</p>
+              </div>
+              <div class="confirmed">
+                <h4>Réservations confirmées et à confirmer</h4>
+                <% a.bookings.order("confirmed desc").each do |b| %>
+                  <div class="card-booking-owner">
+                    <img src="#" />
+                    <div class="card-booking-owner-infos">
+                        <p> Client : <strong><%= b.user.first_name %></strong> </p>
+                        <p>Location <strong><%= a.model %> </strong> du <%= b.start_on %> au <%= b.end_on %> </p>
+                        <p>
+                          <% if b.confirmed == nil %>
+                            <p style="color: orange">En attente</p>
+                          <% elsif b.confirmed == true %>
+                            <p style="color: blue">Validée</p>
+                          <% else %>
+                            <p style="color: red">Refusée</p>
+                          <% end %>
+                        </p>
+                        <% if b.confirmed == nil %>
+                        <%= link_to "valider", accept_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+                        <%= link_to "refuser", decline_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+                        <% end %>
+                    </div>
+                  </div>
+                <% end %>
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+
+      <% else %>
+        <p>
+          <strong>Il n'y a pas d'avions pour cet utilisateur</strong>
+        </p>
       <% end %>
-    <% else %>
-      <p>
-        <strong>Il n'y a pas d'avions pour cet utilisateur</strong>
-      </p>
-    <% end %>
+    </div>
   </div>
-</div>
+</body>
