@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[accept decline]
-
+  before_action :set_aircraft, only: %i[create]
   def create
     @booking = Booking.new(booking_params)
     @booking.end_on = end_on
