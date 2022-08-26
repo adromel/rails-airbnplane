@@ -8,7 +8,10 @@
      <% if @bookings.exists? %>
         <% @bookings.each do |b| %>
           <div class="element">
-            <img id="image" class="zoom-in-out-box" src="https://images.pexels.com/photos/3811676/pexels-photo-3811676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="aircraft-leggs">
+            <% if b.aircraft.photo.attached?  %>
+              <%= cl_image_tag b.aircraft.photo.key, id: "image", class: "zoom-in-out-box", alt: "aicraft" %>
+            <% end %>
+
             <div class="text-content">
               <div class="text">
                   <h1>CONSTRUCTEUR : <%= b.aircraft.brand %></h1>

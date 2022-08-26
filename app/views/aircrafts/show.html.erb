@@ -1,6 +1,7 @@
 <div class="container" id="crad-show">
 <div class="data-container">
-  <img id="image" class="zoom-in-out-box" src="https://images.pexels.com/photos/3811676/pexels-photo-3811676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="aircraft-leggs">
+  <%# <img id="image" class="zoom-in-out-box" src="https://images.pexels.com/photos/3811676/pexels-photo-3811676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="aircraft-leggs"> %>
+  <%= cl_image_tag @aircraft.photo.key, alt: "aircraft-leggs", id: "image", class: "zoom-in-out-box" %>
   </div>
   <div class="text-content">
     <div class="text">
