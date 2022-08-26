@@ -1,8 +1,10 @@
-<h1>Aéroports</h1>
-<div>
-  <li>
-    <% @airports.each do |a| %>
-      <ul><%= link_to a.name, airport_path(a) %></ul>
-    <% end %>
-  </li>
+<div class="container">
+  <h1>Aéroports</h1>
+  <div>
+    <li>
+      <% @airports.each do |a| %>
+        <ul><%= link_to a.name, airport_path(a) %></ul>
+      <% end %>
+    </li>
+  </div>
 </div>

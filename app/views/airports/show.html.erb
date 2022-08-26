@@ -1,19 +1,21 @@
-<h1>List of Aircrafts in <%= @airport.name %></h1>
-<% @aircrafts.each do |a| %>
-  <%= link_to aircraft_path(a), :action => 'go' do %>
-      <div class="card-trip mt-4 mb-4">
-        <% if a.photo.attached? %>
-            <%= cl_image_tag a.photo.key, class: "card-img-top", alt: "aicraft" %>
-        <% end %>
-        <%# <img src="https://images.unsplash.com/photo-1598281343081-0f36311fe207?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" > %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= a.brand%> | <%= a.model  %></h2>
-            <p><%= a.airport.name%> <%= a.airport.city_code %>,   De : <%=  a.owner.first_name  %></p>
+<div class="container">
+  <h1>Avions disponibles à <%= @airport.name %></h1>
+  <% @aircrafts.each do |a| %>
+    <%= link_to aircraft_path(a), :action => 'go' do %>
+        <div class="card-trip mt-4 mb-4">
+          <% if a.photo.attached? %>
+              <%= cl_image_tag a.photo.key, class: "card-img-top", alt: "aicraft" %>
+          <% end %>
+          <%# <img src="https://images.unsplash.com/photo-1598281343081-0f36311fe207?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" > %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= a.brand%> | <%= a.model  %></h2>
+              <p><%= a.airport.name%> <%= a.airport.city_code %>,   De : <%=  a.owner.first_name  %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= a.daily_price%>$</h2>
+            <img class="card-trip-user avatar-bordered" src="https://cdn-icons-png.flaticon.com/512/4036/4036835.png">
           </div>
-          <h2 class="card-trip-pricing"><%= a.daily_price%>$</h2>
-          <img class="card-trip-user avatar-bordered" src="https://cdn-icons-png.flaticon.com/512/4036/4036835.png">
         </div>
-      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
