@@ -10,10 +10,10 @@ Aircraft.destroy_all
 Airport.destroy_all
 User.destroy_all
 
-owner1 = User.create!(email: 'françois.robino@gmail.com', password: 'azerty', first_name: 'François', last_name: 'Robino', address: '113 Av. Mozart, 75016 Paris', phone_number: '0601020304')
+user1 = User.create!(email: 'pauline.eustachy@gmail.com', password: 'azerty', first_name: 'Pauline', last_name: 'Eustachy', address: '113 Av. Mozart, 75016 Paris', phone_number: '0601020304')
 owner2 = User.create!(email: 'badoilflorian@gmail.com', password: 'azerty', first_name: 'Florian', last_name: 'Badoil', address: '13 Av. du Maréchal Juin, 13700 Marignane', phone_number: '0605060708')
 owner3 = User.create!(email: 'alexandre.dromel@gmail.com', password: 'azerty', first_name: 'Alexandre', last_name: 'Dromel', address: '1 Pl. de la comédie, 69001 Lyon', phone_number: '0609101112')
-user1 = User.create!(email: 'antoine.gros14@gmail.com', password: 'azerty', first_name: 'Antoine', last_name: 'Gros', address: '38 rue Professeur Weill', phone_number: '0613141516')
+owner1 = User.create!(email: 'antoine.gros14@gmail.com', password: 'azerty', first_name: 'Antoine', last_name: 'Gros', address: '38 rue Professeur Weill', phone_number: '0613141516')
 user2 = User.create!(email: 'joseph.blanchard@gmail.com', password: 'azerty', first_name: 'Joseph', last_name: 'Blanchard', address: '20 Rue des Capucins', phone_number: '0617181920')
 user3 = User.create!(email: 'benjamin.boisson@gmail.com', password: 'azerty', first_name: 'Benjamin', last_name: 'Boisson', address: '20 Rue des Capucins', phone_number: '0621222324')
 
@@ -26,8 +26,6 @@ roissy = Airport.create!(name: "Aéroport de Paris-Charles de Gaulle", city_code
 
 a320 = Aircraft.create!(brand: "AIRBUS", model: "A320", airport: roissy, owner: owner1, daily_price: 300000)
 a320.photo.attach(io: File.open("./public/images/Airbus_A320-271N_NEO_D-AVVA.jpg"), filename: 'Airbus_A320-271N_NEO_D-AVVA.jpg')
-a3202 = Aircraft.create!(brand: "AIRBUS", model: "A320", airport: marseille, owner: owner2, daily_price: 285000)
-a3202.photo.attach(io: File.open("./public/images/Airbus_A320-271N_NEO_D-AVVA.jpg"), filename: 'Airbus_A320-271N_NEO_D-AVVA.jpg')
 a3203 = Aircraft.create!(brand: "AIRBUS", model: "A320", airport: lyon, owner: owner3, daily_price: 275000)
 a3203.photo.attach(io: File.open("./public/images/Airbus_A320-271N_NEO_D-AVVA.jpg"), filename: 'Airbus_A320-271N_NEO_D-AVVA.jpg')
 a220 = Aircraft.create!(brand: "AIRBUS", model: "A220", airport: roissy, owner: owner1, daily_price: 250000)
