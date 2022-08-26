@@ -18,11 +18,6 @@
             </li>
             <li class="nav-item active">
               <%= link_to "Mes réservations", user_bookings_path(current_user), class: "nav-link"%>
-              <% current_user.bookings.each do |b| %>
-                <% if b.present? && !b.confirmed %>
-                  <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                <% end %>
-              <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to "Mes avions", user_aircrafts_path(current_user), class: "nav-link"%>
