@@ -2,14 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: "pages#home"
 
-  resources :bookings
   patch '/bookings/:id', to: 'bookings#update', as: 'update_booking'
-
-
-  resources :aircrafts do
-    resources :bookings
-  end
-
 
   # vue de la recherche user
   resources :airports do
@@ -24,7 +17,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :aircrafts do
     resources :bookings, only: [:new, :create]
   end
@@ -33,6 +25,7 @@ Rails.application.routes.draw do
     patch :accept, on: :member
     patch :decline, on: :member
   end
+  
   get 'search', to: 'airports#search'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

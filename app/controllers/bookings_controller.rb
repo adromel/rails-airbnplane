@@ -2,18 +2,20 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[accept decline]
 
   def create
-    @booking = Booking.new(booking_params.merge(user: current_user, end_on: end_on))
+    @booking = Booking.new(booking_params)
+    @booking.end_on = end_on
+    @booking.user = current_user
+    @booking.aircraft = @aircraft
 
     # if Booking.where(start_on: @booking.start_on, end_on: @booking.end_on).exists?
     #   Flash.now[:alert] = "Cet avion est déjà réservé"
     # else
-      if @booking.save
-        redirect_to root_path, status: :see_other
-      else
-        @error_booking = @booking.errors.full_messages
-        render 'aircrafts/show'
-      end
-    # end
+    if @booking.save
+      redirect_to root_path, status: :see_other
+    else
+      @error_booking = @booking.errors.full_messages
+      render 'aircrafts/show'
+    end
   end
 
   def new
@@ -59,6 +61,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :aircraft_id, :start_on, :end_on, :confirmed)
+    params.require(:booking).permit(:start_on, :end_on, :confirmed)
   end
 end
