@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-  before_action :set_aircraft, only: %i[create]
   before_action :set_booking, only: %i[accept decline]
 
   def create
