@@ -3,7 +3,10 @@
   <% if @bookings.exists? %>
     <% @bookings.each do |b| %>
         <div class="card mb-3">
-          <img src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="aicraft">
+          <%# <img src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="aicraft"> %>
+          <% if b.aircraft.photo.attached?  %>
+            <%= cl_image_tag b.aircraft.photo.key, class: "card-img-top", alt: "aicraft" %>
+          <% end %>
           <div class="card-body">
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><h5 class="card-title">Constructeur : <%= b.aircraft.brand %></h5></li>

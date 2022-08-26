@@ -18,7 +18,10 @@
   <% @aircrafts.each do |aircraft| %>
     <%= link_to aircraft_path(aircraft), :action => 'go' do %>
       <div class="card-trip mt-4 mb-4">
-        <img id="home-img" src="https://images.unsplash.com/photo-1598281343081-0f36311fe207?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" >
+        <%# <img id="home-img" src="https://images.unsplash.com/photo-1598281343081-0f36311fe207?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" > %>
+        <% if aircraft.photo.attached? %>
+          <%= cl_image_tag aircraft.photo.key, class: "card-img-top", alt: "aicraft" %>
+        <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= aircraft.brand %> | <%= aircraft.model  %></h2>

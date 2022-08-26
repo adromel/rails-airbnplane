@@ -7,7 +7,11 @@
     <% if @aircrafts.any? %>
       <% @aircrafts.each do |a| %>
         <div class="card mb-3">
-          <img src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="aicraft">
+          <% if a.photo.attached? %>
+            <%= cl_image_tag a.photo.key, class: "card-img-top", alt: "aicraft" %>
+          <% end %>
+          <%# <%= cl_image_tag a.photo.key, alt: "aircraft-leggs", id: "image", class: "zoom-in-out-box" %>
+          <%# <img src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="aicraft"> %>
           <div class="card-body">
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><h5 class="card-title">Constructeur : <%= a.brand %>
