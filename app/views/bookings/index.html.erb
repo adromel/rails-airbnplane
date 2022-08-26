@@ -1,7 +1,7 @@
 <body class="splash">
   <div class="container" id="crad-show">
     <div style="display: flex; flex-direction: row; justify-content: space-between">
-      <h1 id="title-my-aircraft">Mes avions</h1>
+      <h1 id="title-my-aircraft">Mes réservations</h1>
       <p><%= link_to "Ajouter un avion", current_user.present? ? new_user_aircraft_path(current_user) : new_user_registration_path, class: "btn btn-primary" %></p>
     </div>
     <div class="data-container" id="space-under-elements">
@@ -21,11 +21,11 @@
               <div class="confirmed">
                 <p>Statut de la réservation :
                   <% if b.confirmed == nil %>
-                    <strong>En attente de validation</strong>
+                    <strong style="color:orange">En attente de validation</strong>
                   <% elsif b.confirmed == true %>
-                    <strong>Validée</strong>
+                    <strong style="color:green">Validée</strong>
                   <% elsif b.confirmed == false %>
-                    <strong>Refusée</strong>
+                    <strong style="color:red">Refusée</strong>
                   <% end %>
                 </p>
               </div>

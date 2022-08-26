@@ -34,8 +34,8 @@
                           <% end %>
                         </p>
                         <% if b.confirmed == nil %>
-                        <%= link_to "valider", accept_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
-                        <%= link_to "refuser", decline_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+                        <%= link_to "Valider", accept_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}, style: "background-color:green; color:aliceblue; padding:8px;" %>
+                        <%= link_to "Refuser", decline_booking_path(b), data: {turbo_method: :patch, turbo_confirm: "Are you sure?"}, style: "background-color:red; color:aliceblue; padding:8px;" %>
                         <% end %>
                     </div>
                   </div>
