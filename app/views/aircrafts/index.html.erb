@@ -14,10 +14,11 @@
                   <h1>CONSTRUCTEUR : <%= a.brand %></h1>
                   <h2>Cet avion est proposé par <strong><%= a.owner.first_name %> </strong></h2>
                   <p class="card-text">Série : <%= a.model %></p>
+
                   <p class="card-text"><small class="text-muted">Price : <%= number_to_currency(a.daily_price, unit: "€", delimiter: " ", precision: 0, format: "%n %u") %> </small>$</p>
               </div>
               <div class="confirmed">
-                <h4>Réservations confirmées et à confirmer</h4>
+                <h4>Réservations confirmées et à confirmer :</h4>
                 <% a.bookings.order("confirmed desc").each do |b| %>
                   <div class="card-booking-owner">
                     <img src="#" />
