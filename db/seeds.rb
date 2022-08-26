@@ -43,4 +43,3 @@ b7573.photo.attach(io: File.open("./public/images/B757.jpg"), filename: 'B757.jp
 
 Booking.create!(user_id: user1.id, aircraft_id: a320.id, start_on: "2022-08-23", end_on: "2022-08-24")
 Booking.create!(user_id: user1.id, aircraft_id: b7572.id, start_on: "2022-08-25", end_on: "2022-08-25")
-Booking.create!(user_id: user3.id, aircraft_id: a3202.id, start_on: "2022-08-26", end_on: "2022-08-27")
