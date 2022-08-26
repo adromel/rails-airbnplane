@@ -23,7 +23,7 @@
                   <div class="card-booking-owner">
                     <div class="card-booking-owner-infos">
                         <h3> Client : <strong><%= b.user.first_name %></strong> </h3>
-                        <p>Location <strong><%= a.model %> </strong> du <%= b.start_on %> au <%= b.end_on %> </p>
+                        <p>Location <strong><%= a.model %> </strong> du <%= b.start_on.strftime("%d/%m/%Y") %> au <%= b.end_on.strftime("%d/%m/%Y") %> </p>
                         <p>
                           <% if b.confirmed == nil %>
                             <p style="color: orange">En attente</p>

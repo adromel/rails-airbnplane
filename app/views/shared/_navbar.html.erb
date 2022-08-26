@@ -18,11 +18,6 @@
             </li>
             <li class="nav-item active">
               <%= link_to "Mes réservations", user_bookings_path(current_user), class: "nav-link"%>
-              <% current_user.bookings.each do |b| %>
-                <% if b.present? && !b.confirmed %>
-                  <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                <% end %>
-              <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to "Mes avions", user_aircrafts_path(current_user), class: "nav-link"%>
@@ -37,12 +32,12 @@
             <li class="nav-item dropdown">
             <i class="fa-solid fa-earth-europe fa-3x" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <p class="dropdown-item"><%= current_user&.email %></p>
+              <p class="dropdown-item dropdown-user"><%= current_user&.email %></p>
               <hr class="dropdown-divider">
               <%# <%= link_to "Notifications", "#", class: "dropdown-item" %>
               <%= link_to "Mes réservations", user_bookings_path(current_user), class: "dropdown-item" %>
               <%= link_to "Créer une annonce", new_user_aircraft_path(current_user), class: "dropdown-item" %>
-              <%# <%= link_to "Compte", "#", class: "dropdown-item" %> %>
+              <%# <%= link_to "Compte", "#", class: "dropdown-item" %>
               <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
