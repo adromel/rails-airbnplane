@@ -18,10 +18,10 @@ user2 = User.create!(email: 'fafa@example.com', password: 'azerty', first_name: 
 user3 = User.create!(email: 'fifi@example.com', password: 'azerty', first_name: 'fifi', last_name: 'FIFI', address: 'rue des capucins', phone_number: '0601020304')
 
 
-lyon = Airport.create!(name: "LYON ST EXUPERY", city_code: "69125")
-roissy = Airport.create!(name: "ROISSY CDG", city_code: "95700")
+lyon = Airport.create!(name: "Lyon St Exupery", city_code: "69125")
+roissy = Airport.create!(name: "Roissy CDG", city_code: "95700")
 nice = Airport.create!(name: "Nice Côte d'Azur", city_code: "06000")
-marseille = Airport.create!(name: "Marignane", city_code: "13727")
+marseille = Airport.create!(name: "Marseille Marignane", city_code: "13727")
 nantes = Airport.create!(name: "Nantes Atlantique", city_code: "44340")
 orly = Airport.create!(name: "Orly", city_code: "94310")
 
